@@ -87,6 +87,8 @@ all: ${LINK_DEPENDS}
 
 
 ${BINDIR}/libqpOASES.${LIBEXT}: ${QPOASES_OBJECTS} ${QPOASES_EXTRAS_OBJECTS}
+# a remedy for path not exist error
+	@mkdir -p $(@D)
 	@${ECHO} "Creating static lib" $@
 	@${AR} r $@ $^
 

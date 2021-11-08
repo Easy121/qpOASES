@@ -40,6 +40,8 @@ SET(PACKAGE_AUTHOR "Hans Joachim Ferreau, Andreas Potschka, Christian Kirches et
 SET(PACKAGE_MAINTAINER "Hans Joachim Ferreau, Andreas Potschka, Christian Kirches et al.")
 SET(PACKAGE_URL "https://projects.coin-or.org/qpOASES")
 
+# a remedy for path not exist error
+file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/libs)
 

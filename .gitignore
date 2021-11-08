@@ -1,1 +1,5 @@
-/*.mex
+# compiled file
+*.mex
+*.o
+bin/
+bin/**
