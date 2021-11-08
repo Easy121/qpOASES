@@ -3,5 +3,7 @@
 *.o
 bin/
 bin/**
+lib/
+lib/**
 build
 build/**

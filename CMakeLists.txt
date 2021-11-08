@@ -40,8 +40,10 @@ SET(PACKAGE_AUTHOR "Hans Joachim Ferreau, Andreas Potschka, Christian Kirches et
 SET(PACKAGE_MAINTAINER "Hans Joachim Ferreau, Andreas Potschka, Christian Kirches et al.")
 SET(PACKAGE_URL "https://projects.coin-or.org/qpOASES")
 
+add_compile_options(-fPIC)
+
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/libs)
+SET(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
 
 IF( NOT CMAKE_VERBOSE_MAKEFILE )
     SET( CMAKE_VERBOSE_MAKEFILE OFF )
@@ -54,7 +56,8 @@ IF( NOT CMAKE_BUILD_TYPE )
         )
 ENDIF( NOT CMAKE_BUILD_TYPE )
 
-option(BUILD_SHARED_LIBS "If ON, build shared library instead of static" OFF)
+# build shared library
+option(BUILD_SHARED_LIBS "If ON, build shared library instead of static" ON)
 option(QPOASES_BUILD_EXAMPLES "Build examples." ON)
 option(QPOASES_AVOID_LA_NAMING_CONFLICTS "If ON, avoid to re-defined symbols that conflict with Blas/Lapack provided functions." OFF)
 
@@ -112,7 +115,7 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
 FILE(GLOB SRC src/*.cpp)
 
 # library
-ADD_LIBRARY(qpOASES ${SRC})
+ADD_LIBRARY(qpOASES SHARED ${SRC})
 INSTALL(TARGETS qpOASES
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
