@@ -40,7 +40,7 @@ SET(PACKAGE_AUTHOR "Hans Joachim Ferreau, Andreas Potschka, Christian Kirches et
 SET(PACKAGE_MAINTAINER "Hans Joachim Ferreau, Andreas Potschka, Christian Kirches et al.")
 SET(PACKAGE_URL "https://projects.coin-or.org/qpOASES")
 
-add_compile_options(-fPIC -O3)
+add_compile_options(-fPIC -O3 -ffast-math -DNDEBUG -mavx -mfma)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
